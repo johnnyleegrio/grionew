@@ -1,0 +1,28 @@
+.container {
+	width: 1000px !important;
+	padding-left: 30px;
+	padding-right: 30px;
+}
+
+/* SITE LAYOUT STYLES */
+
+body {
+	margin-top: 40px;
+	background-color: green;
+}
+
+header {
+	height:300px; width:100%;
+	background-color:#ccc;
+	border-bottom: solid 5px #fff;
+}
+
+#main div.container {
+	background-color: #fff;
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+
+#main div.container:nth-child(2n) {
+	background-color: #f3f3f3;
+} 
