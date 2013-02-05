@@ -14,11 +14,9 @@ h2 {
 	font-size: 27px;
 }
 
-.container {
-	width: 1000px !important;
-	padding-left: 30px;
-	padding-right: 30px;
-	margin: 0 auto;
+.back-to-top {
+	float: right;
+	padding-right: 10px;
 }
 
 /* LAYOUT STYLES */
@@ -38,18 +36,88 @@ header {
 footer {
 	text-align: center;
 	background-color: #fff;
+	font-size: 12px;
+	padding: 15px 0;
 }
 
-#home div {
+.container {
+	width: 1000px !important;
+	padding-left: 30px;
+	padding-right: 30px;
+	margin: 0 auto;
+}
+
+#home > section {
 	background-color: #fff;
 	padding: 25px 50px;
 }
 
-#home div:nth-child(2n) {
+#home > section:nth-child(2n) {
 	background-color: #f3f3f3;
 }
 
 /* grio map */
+
+#address{
+    display: block;
+    /*width: 125px;*/
+    position: absolute;
+    background: #FEFEFE;
+    margin-top: 20px;
+    padding: 10px 25px 25px !important;
+    line-height: 18px;
+    font-size: 14px;
+    z-index: 200;
+    /*left: -25px;*/
+}
+
+#address h5{
+    font-size: 18px;
+    padding-bottom: 16px;
+}
+
+#social {
+    position:relative;
+    width:120px;
+    height:30px;
+    display:block;
+    padding-top: 17px;
+    left: -6px;
+}
+
+#social > a {
+    display: inline-block;
+}
+
+#social .icn {
+    background: transparent url('images/social_icn.png') no-repeat 0px -26px;
+    width:29px;
+    height:27px;
+    overflow:hidden;
+    display:inline-block;
+    margin-right:3px;
+
+}
+
+#social .icn:hover {
+    background-position: 0px 0px;
+}
+
+#social .twitter {
+    background-position: -32px -26px;
+}
+
+#social .twitter:hover {
+    background-position: -32px 0px;
+}
+
+#social .flickr {
+    background-position: -61px -26px;
+}
+
+#social .flickr:hover {
+    background-position: -61px 0px;
+}
 
 #map_canvas {
 	width: 100%;
