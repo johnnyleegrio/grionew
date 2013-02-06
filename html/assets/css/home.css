@@ -142,7 +142,7 @@ header ul.slides li {
 	display: none;
 }
 
-header ul.slides li.selected {
+header ul.slides li:first-child {
 	display: block;
 }
 

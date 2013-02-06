@@ -63,8 +63,6 @@ Grio.home = ( function($, Grio) {
 		},
 
 		initHeaderSlide: function() {
-			// render the first slide visible
-			$('header ul.slides li:first-child').fadeIn();
 			// calculate number of slides
 			var total = $('header .slides li').size();
 			// generate pager button menu accordingly
@@ -74,6 +72,7 @@ Grio.home = ( function($, Grio) {
 			}
 			$('header').append("<ul class='pager'>"+pager+"</ul><div class='clearfix'></div>");
 			$('ul.pager').fadeIn();
+			$('ul.pager li:first-child').addClass('selected');
 			// when you click on any of the pager buttons...
 			$('ul.pager li').click(function(){
 				// change color of pager button
@@ -89,7 +88,6 @@ Grio.home = ( function($, Grio) {
 		autoHeaderSlide: function() {
 			var selectedIndex, nextIndex;
 			var max = $('ul.slides li').size();
-			alert(max);
 			var run_header_rotation = setInterval(function() {
 				selectedIndex = $('ul.pager li').index( $('li.selected') ) + 1;
 				if (selectedIndex == max) {
