@@ -144,7 +144,7 @@ header ul.slides li {
 	width: 100%;
 	overflow: hidden;
 	display: none;
-	position: absolute;
+	position: relative;
 }
 
 header ul.slides li:first-child {
