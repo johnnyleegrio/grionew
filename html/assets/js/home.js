@@ -60,43 +60,7 @@ Grio.home = ( function($, Grio) {
 		init: function () {
 			this.initMap();
 			this.autoHeaderSlide();
-		},
-
-		initHeaderSlide: function() {
-			// calculate number of slides
-			var total = $('header .slides li').size();
-			// generate pager button menu accordingly
-			var pager = ""
-			for (i = 0; i < total; i++) {
-				pager += "<li><a href='#"+i+"'><span>"+ i+"</span></a></li>\n";
-			}
-			$('header').append("<ul class='pager'>"+pager+"</ul><div class='clearfix'></div>");
-			$('ul.pager').fadeIn();
-			$('ul.pager li:first-child').addClass('selected');
-			// when you click on any of the pager buttons...
-			$('ul.pager li').click(function(){
-				// change color of pager button
-				$('ul.pager li').removeClass('selected');
-				$(this).addClass('selected');
-				// change header slide
-				var index = $('ul.pager li').index(this) + 1;
-				$('ul.slides li').hide();
-				$('ul.slides li:nth-child('+index+')').fadeIn();
-			})
-		},
-		
-		autoHeaderSlide: function() {
-			var selectedIndex, nextIndex;
-			var max = $('ul.slides li').size();
-			var run_header_rotation = setInterval(function() {
-				selectedIndex = $('ul.pager li').index( $('li.selected') ) + 1;
-				if (selectedIndex == max) {
-					nextIndex = 1;
-				} else {
-					nextIndex = selectedIndex + 1;
-				}
-				$('ul.pager li:nth-child('+nextIndex+')').trigger('click');
-			}, 5000);
+			this.rotateText();
 		},
 
 		initMap: function () {
@@ -218,7 +182,55 @@ Grio.home = ( function($, Grio) {
             if (tablet) {
                 $('#map_canvas').append("<div id='map_tablet_overlay'></div>");
             }
-        }
+        },
+        
+		initHeaderSlide: function() {
+			// calculate number of slides
+			var total = $('header .slides li').size();
+			// generate pager button menu accordingly
+			var pager = ""
+			for (i = 0; i < total; i++) {
+				pager += "<li><a href='#"+i+"'><span>"+ i+"</span></a></li>\n";
+			}
+			$('header').append("<ul class='pager'>"+pager+"</ul><div class='clearfix'></div>");
+			$('ul.pager').fadeIn();
+			$('ul.pager li:first-child').addClass('selected');
+			// when you click on any of the pager buttons...
+			$('ul.pager li').click(function(){
+				// change color of pager button
+				$('ul.pager li').removeClass('selected');
+				$(this).addClass('selected');
+				// change header slide
+				var index = $('ul.pager li').index(this) + 1;
+				$('ul.slides li').hide();
+				$('ul.slides li:nth-child('+index+')').fadeIn();
+			})
+		},
+		
+		autoHeaderSlide: function() {
+			var selectedIndex, nextIndex;
+			var max = $('ul.slides li').size();
+			var run_header_rotation = setInterval(function() {
+				selectedIndex = $('ul.pager li').index( $('li.selected') ) + 1;
+				if (selectedIndex == max) {
+					nextIndex = 1;
+				} else {
+					nextIndex = selectedIndex + 1;
+				}
+				$('ul.pager li:nth-child('+nextIndex+')').trigger('click');
+			}, 5000);
+		},
+
+		rotateText: function() {
+			var terms = ["bellissimo", "fabu", "brilliant", "shit-hot", "prima", "fuckin-'A"];
+			function rotateTerm() {
+				var ct = $("#rotate").data("term") || 0;
+				$("#rotate").data("term", ct == terms.length -1 ? 0 : ct + 1).text(terms[ct]).fadeIn()
+					.delay(4800).fadeOut(200, rotateTerm);
+			}
+			$(rotateTerm);
+		}
+        
     }
 }) (jQuery, Grio);
 
