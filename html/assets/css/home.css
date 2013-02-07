@@ -178,6 +178,6 @@ header ul.pager li a span {
 	box-shadow: 1px 1px 3px #333;
 }
 
-header ul.pager li.selected a span {
+header ul.pager li.active a span {
 	background-color:#000;
 }
