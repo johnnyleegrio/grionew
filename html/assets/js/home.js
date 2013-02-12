@@ -2,6 +2,15 @@ if (!Grio) {
     var Grio = {};
 }
 
+Grio.init = function(callback) {
+	Grio.data.load('app_config', function(data){
+		if(data) {
+			$.extend(Grio.config._vars, data);  
+		}
+		if(callback) callback();
+	});
+}
+
 Grio.config = ( function($, Grio) {
     return {
         _vars : {
@@ -49,6 +58,46 @@ Grio.config = ( function($, Grio) {
         }
     }
 }) (jQuery, Grio);
+
+Grio.data = ( function($, Grio) {
+	return {
+		load: function(file, callback) {
+			$.ajax({
+				url: Grio.config.data_path(file+'.json'),
+				async: false,
+				dataType: 'json',
+				contentType: 'application/json;charset=utf-8',
+				success: function(data) {
+                    if(callback) {
+                        callback(data);
+                    }
+				},
+				error: function(data) {
+                    if(callback) {
+                        callback({});
+                    }
+				},
+				complete: function(data,status){
+                }
+			})
+		}
+	}
+}) (jQuery, Grio);
+// This is a manifest file that'll be compiled into including all the files listed below.
+// Add new JavaScript/Coffee code in separate files in this directory and they'll automatically
+// be included in the compiled file accessible from http://example.com/assets/application.js
+// It's not advisable to add code directly here, but if you do, it'll appear at the bottom of the
+// the compiled file.
+//
+//= require touchwipe
+//= require imagesloaded
+//= require carouFredSel
+//= require application
+//= require_self
+
+if (!Grio) {
+	var Grio = {};
+}
 
 Grio.home = ( function($, Grio) {
     return {

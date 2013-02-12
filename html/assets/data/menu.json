@@ -1,0 +1,30 @@
+[
+	{
+		"label" : "01_home",
+		"link"  : "#home"
+	},
+	{
+		"label" : "02_services",
+		"link"  : "#services"
+	},
+	{
+		"label" : "03_portfolio",
+		"link"  : "#portfolio"
+	},
+	{
+		"label" : "04_our team",
+		"link"  : "#our-team"
+	},
+	{
+		"label" : "05_blog",
+		"link"  : "#blog"
+	},
+	{
+		"label" : "06_contact",
+		"link"  : "#contact"
+	},
+	{
+		"label" : "07_jobs",
+		"link"  : "/jobs.html"
+	}
+]
